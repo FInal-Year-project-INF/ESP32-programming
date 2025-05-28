@@ -10,6 +10,7 @@ class RegisterPatientScreen extends StatefulWidget {
   const RegisterPatientScreen({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _RegisterPatientScreenState createState() => _RegisterPatientScreenState();
 }
 
@@ -58,7 +59,7 @@ class _RegisterPatientScreenState extends State<RegisterPatientScreen> {
                     borderRadius: BorderRadius.circular(16),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withOpacity(0.03),
+                        color: Colors.black.withAlpha((0.03 * 255).toInt()),
                         blurRadius: 10,
                         offset: const Offset(0, 4),
                       ),
@@ -75,7 +76,7 @@ class _RegisterPatientScreenState extends State<RegisterPatientScreen> {
                               width: 40,
                               height: 40,
                               decoration: BoxDecoration(
-                                color: Colors.teal.withOpacity(0.1),
+                                color: Colors.teal.withAlpha((0.1 * 255).toInt()),
                                 borderRadius: BorderRadius.circular(10),
                               ),
                               child: const Icon(
@@ -130,9 +131,7 @@ class _RegisterPatientScreenState extends State<RegisterPatientScreen> {
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
                             ),
-                            disabledBackgroundColor: Colors.teal.withOpacity(
-                              0.5,
-                            ),
+                            disabledBackgroundColor: Colors.teal.withAlpha((0.5 * 255).toInt()),
                           ),
                           onPressed:
                               bluetoothProvider.isReading
@@ -284,6 +283,7 @@ class _RegisterPatientScreenState extends State<RegisterPatientScreen> {
 
                                   if (success) {
                                     showDialog(
+                                      // ignore: use_build_context_synchronously
                                       context: currentContext,
                                       builder:
                                           (ctx) => AlertDialog(
@@ -315,6 +315,7 @@ class _RegisterPatientScreenState extends State<RegisterPatientScreen> {
                                       );
                                     }
                                     ScaffoldMessenger.of(
+                                      // ignore: use_build_context_synchronously
                                       currentContext,
                                     ).showSnackBar(
                                       const SnackBar(
@@ -333,7 +334,7 @@ class _RegisterPatientScreenState extends State<RegisterPatientScreen> {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
                           ),
-                          disabledBackgroundColor: Colors.blue.withOpacity(0.5),
+                          disabledBackgroundColor: Colors.blue.withAlpha((0.5 * 255).toInt()),
                         ),
                         child:
                             _isRegistering
@@ -464,7 +465,7 @@ class _RegisterPatientScreenState extends State<RegisterPatientScreen> {
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.03),
+            color: Colors.black.withAlpha((0.03 * 255).toInt()),
             blurRadius: 10,
             offset: const Offset(0, 3),
           ),

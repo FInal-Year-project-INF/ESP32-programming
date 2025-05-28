@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/auth_provider.dart';
@@ -146,6 +145,7 @@ class UserOrganizationCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
+            // ignore: deprecated_member_use
             color: Colors.black.withOpacity(0.03),
             blurRadius: 10,
             offset: const Offset(0, 4),
@@ -162,7 +162,7 @@ class UserOrganizationCard extends StatelessWidget {
                 height: 48,
                 width: 48,
                 decoration: BoxDecoration(
-                  color: Colors.blue.withOpacity(0.1),
+                  color: Colors.blue.withAlpha((0.1 * 255).toInt()),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: const Icon(
@@ -193,10 +193,11 @@ class UserOrganizationCard extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
-              color: Colors.orange.withOpacity(0.05),
+              color: Colors.orange.withAlpha((0.05 * 255).toInt()),
               borderRadius: BorderRadius.circular(12),
               border: Border.all(
-                color: Colors.orange.withOpacity(0.2),
+                color: Colors.orange.withAlpha((0.2 * 255).toInt()),
+
                 width: 1,
               ),
             ),
@@ -206,7 +207,7 @@ class UserOrganizationCard extends StatelessWidget {
                   width: 36,
                   height: 36,
                   decoration: BoxDecoration(
-                    color: Colors.orange.withOpacity(0.1),
+                    color: Colors.orange.withAlpha((0.1 * 255).toInt()),
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: const Icon(
@@ -264,7 +265,6 @@ class DeviceStatusCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final bool isConnected = bluetoothProvider.isConnected;
     final bool isProcessing = bluetoothProvider.isProcessingBluetoothAction;
-    final bool isActuallyConnecting = bluetoothProvider.isConnecting;
     final String currentActionStatus = bluetoothProvider.bluetoothActionStatus;
 
     String displayedDeviceNameOrStatus;
@@ -280,7 +280,7 @@ class DeviceStatusCard extends StatelessWidget {
               : "Processing...";
       statusColor = Colors.orange;
       statusIconData = Icons.bluetooth_searching;
-      iconBackgroundColor = Colors.orange.withOpacity(0.1);
+      iconBackgroundColor = Colors.orange.withAlpha((0.1 * 255).toInt());
       buttonWidget = SizedBox(
         width: 90,
         height: 44,
@@ -299,7 +299,7 @@ class DeviceStatusCard extends StatelessWidget {
       displayedDeviceNameOrStatus = bluetoothProvider.selectedDevice!.name;
       statusColor = Colors.green;
       statusIconData = Icons.bluetooth_connected;
-      iconBackgroundColor = Colors.green.withOpacity(0.1);
+      iconBackgroundColor = Colors.green.withAlpha((0.1 * 255).toInt());
       buttonWidget = TextButton(
         onPressed: onDisconnectPressed,
         style: TextButton.styleFrom(
@@ -323,7 +323,7 @@ class DeviceStatusCard extends StatelessWidget {
               : 'ESP32-Thermo not connected';
       statusColor = Colors.red;
       statusIconData = Icons.bluetooth_disabled;
-      iconBackgroundColor = Colors.red.withOpacity(0.1);
+      iconBackgroundColor = Colors.red.withAlpha((0.1 * 255).toInt());
       buttonWidget = TextButton(
         onPressed: onConnectPressed,
         style: TextButton.styleFrom(
@@ -348,7 +348,7 @@ class DeviceStatusCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.03),
+            color: Colors.black.withAlpha((0.03 * 255).toInt()),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
@@ -391,10 +391,10 @@ class DeviceStatusCard extends StatelessWidget {
                       vertical: 12,
                     ),
                     decoration: BoxDecoration(
-                      color: statusColor.withOpacity(0.05),
+                      color: statusColor.withAlpha((0.05 * 255).toInt()),
                       borderRadius: BorderRadius.circular(12),
                       border: Border.all(
-                        color: statusColor.withOpacity(0.3),
+                        color: statusColor.withAlpha((0.3 * 255).toInt()),
                         width: 1,
                       ),
                     ),
@@ -477,7 +477,7 @@ class TemperatureCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.03),
+            color: Colors.black.withAlpha((0.03 * 255).toInt()),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
@@ -494,7 +494,7 @@ class TemperatureCard extends StatelessWidget {
                   width: 40,
                   height: 40,
                   decoration: BoxDecoration(
-                    color: Colors.teal.withOpacity(0.1),
+                    color: Colors.teal.withAlpha((0.1 * 255).toInt()),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: const Icon(
@@ -520,7 +520,7 @@ class TemperatureCard extends StatelessWidget {
                 width: double.infinity,
                 padding: const EdgeInsets.symmetric(vertical: 30),
                 decoration: BoxDecoration(
-                  color: temperatureColor.withOpacity(0.05),
+                  color: temperatureColor.withAlpha((0.05 * 255).toInt()),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Column(
@@ -576,8 +576,8 @@ class TemperatureCard extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
-                disabledBackgroundColor: Colors.teal.withOpacity(0.5),
-                disabledForegroundColor: Colors.white.withOpacity(0.7),
+                disabledBackgroundColor: Colors.teal.withAlpha((0.5 * 255).toInt()),
+                disabledForegroundColor: Colors.white.withAlpha((0.7 * 255).toInt()),
               ),
               onPressed:
                   isReadingInProgress || !bluetoothProvider.isConnected
@@ -631,14 +631,14 @@ class PatientManagementSection extends StatelessWidget {
             borderRadius: BorderRadius.circular(16),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(0.03),
+                color: Colors.black.withAlpha((0.03 * 255).toInt()),
                 blurRadius: 10,
                 offset: const Offset(0, 4),
               ),
             ],
             border:
                 isConnected
-                    ? Border.all(color: Colors.blue.withOpacity(0.3), width: 1)
+                    ? Border.all(color: Colors.blue.withAlpha((0.03 * 255).toInt()), width: 1)
                     : null,
           ),
           child: Material(
@@ -657,8 +657,8 @@ class PatientManagementSection extends StatelessWidget {
                       decoration: BoxDecoration(
                         color:
                             isConnected
-                                ? Colors.blue.withOpacity(0.1)
-                                : Colors.grey.withOpacity(0.1),
+                                ? Colors.blue.withAlpha((0.1 * 255).toInt())
+                                : Colors.grey.withAlpha((0.1 * 255).toInt()),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: Icon(
@@ -700,7 +700,7 @@ class PatientManagementSection extends StatelessWidget {
                                 vertical: 4,
                               ),
                               decoration: BoxDecoration(
-                                color: Colors.blue.withOpacity(0.1),
+                                color: Colors.blue.withAlpha((0.1 * 255).toInt()),
                                 borderRadius: BorderRadius.circular(12),
                               ),
                               child: const Text(
@@ -721,8 +721,8 @@ class PatientManagementSection extends StatelessWidget {
                       decoration: BoxDecoration(
                         color:
                             isConnected
-                                ? Colors.blue.withOpacity(0.1)
-                                : Colors.grey.withOpacity(0.05),
+                                ? Colors.blue.withAlpha((0.1 * 255).toInt())
+                                : Colors.grey.withAlpha((0.05 * 255).toInt()),
                         shape: BoxShape.circle,
                       ),
                       child: Icon(
@@ -730,7 +730,7 @@ class PatientManagementSection extends StatelessWidget {
                         color:
                             isConnected
                                 ? Colors.blue
-                                : Colors.grey.withOpacity(0.5),
+                                : Colors.grey.withAlpha((0.5 * 255).toInt()),
                         size: 18,
                       ),
                     ),
@@ -748,7 +748,7 @@ class PatientManagementSection extends StatelessWidget {
             borderRadius: BorderRadius.circular(16),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(0.03),
+                color: Colors.black.withAlpha((0.03 * 255).toInt()),
                 blurRadius: 10,
                 offset: const Offset(0, 4),
               ),
@@ -768,7 +768,7 @@ class PatientManagementSection extends StatelessWidget {
                       width: 56,
                       height: 56,
                       decoration: BoxDecoration(
-                        color: Colors.purple.withOpacity(0.1),
+                        color: Colors.purple.withAlpha((0.1 * 255).toInt()),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: const Icon(
@@ -804,7 +804,7 @@ class PatientManagementSection extends StatelessWidget {
                       width: 36,
                       height: 36,
                       decoration: BoxDecoration(
-                        color: Colors.purple.withOpacity(0.1),
+                        color: Colors.purple.withAlpha((0.1 * 255).toInt()),
                         shape: BoxShape.circle,
                       ),
                       child: const Icon(
@@ -829,7 +829,7 @@ class PatientManagementSection extends StatelessWidget {
               borderRadius: BorderRadius.circular(16),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.03),
+                  color: Colors.black.withAlpha((0.03 * 255).toInt()),
                   blurRadius: 10,
                   offset: const Offset(0, 4),
                 ),
@@ -849,7 +849,7 @@ class PatientManagementSection extends StatelessWidget {
                         width: 56,
                         height: 56,
                         decoration: BoxDecoration(
-                          color: Colors.teal.withOpacity(0.1),
+                          color: Colors.teal.withAlpha((0.1 * 255).toInt()),
                           borderRadius: BorderRadius.circular(12),
                         ),
                         child: const Icon(
@@ -885,7 +885,7 @@ class PatientManagementSection extends StatelessWidget {
                         width: 36,
                         height: 36,
                         decoration: BoxDecoration(
-                          color: Colors.teal.withOpacity(0.1),
+                          color: Colors.teal.withAlpha((0.1 * 255).toInt()),
                           shape: BoxShape.circle,
                         ),
                         child: const Icon(

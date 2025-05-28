@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/auth_provider.dart';
-import '../services/dhis2_service.dart';
+//import '../services/dhis2_service.dart';
 import 'home_page.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _LoginScreenState createState() => _LoginScreenState();
 }
 
@@ -15,7 +16,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
   final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
-  final _dhis2Service = DHIS2Service();
+  //final _dhis2Service = DHIS2Service();
 
   bool _isLoading = false;
   bool _obscurePassword = true;
@@ -73,6 +74,7 @@ class _LoginScreenState extends State<LoginScreen> {
         defaultOrgName,
       );
 
+      // ignore: use_build_context_synchronously
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(builder: (ctx) => const HomeScreen()),
       );
@@ -120,7 +122,7 @@ class _LoginScreenState extends State<LoginScreen> {
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.03),
+            color: Colors.black.withAlpha((0.03 * 255).toInt()),
             blurRadius: 10,
             offset: const Offset(0, 3),
           ),
@@ -212,7 +214,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           width: 80,
                           height: 80,
                           decoration: BoxDecoration(
-                            color: Colors.teal.withOpacity(0.1),
+                            color: Colors.teal.withAlpha((0.1 * 255).toInt()),
                             borderRadius: BorderRadius.circular(20),
                           ),
                           child: const Icon(
@@ -302,7 +304,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     style: TextButton.styleFrom(
                       backgroundColor: Colors.teal,
                       foregroundColor: Colors.white,
-                      disabledBackgroundColor: Colors.teal.withOpacity(0.5),
+                      disabledBackgroundColor: Colors.teal.withAlpha((0.5 * 255).toInt()),
                       padding: const EdgeInsets.symmetric(vertical: 16),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12),

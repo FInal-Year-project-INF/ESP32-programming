@@ -9,6 +9,7 @@ class PatientListScreen extends StatefulWidget {
   const PatientListScreen({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _PatientListScreenState createState() => _PatientListScreenState();
 }
 

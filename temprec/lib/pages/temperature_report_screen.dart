@@ -13,6 +13,7 @@ class TemperatureReportScreen extends StatefulWidget {
   const TemperatureReportScreen({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _TemperatureReportScreenState createState() =>
       _TemperatureReportScreenState();
 }

@@ -60,7 +60,7 @@ class TempRecApp extends StatelessWidget {
           filled: true,
           fillColor: Colors.white,
         ),
-        cardTheme: CardTheme(
+        cardTheme: CardThemeData(
           elevation: AppDimensions.cardElevation,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(AppDimensions.cardBorderRadius),

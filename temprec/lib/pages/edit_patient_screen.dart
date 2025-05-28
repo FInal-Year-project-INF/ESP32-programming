@@ -13,6 +13,7 @@ class EditPatientScreen extends StatefulWidget {
   const EditPatientScreen({super.key, required this.patientData});
 
   @override
+  // ignore: library_private_types_in_public_api
   _EditPatientScreenState createState() => _EditPatientScreenState();
 }
 
@@ -186,9 +187,9 @@ class _EditPatientScreenState extends State<EditPatientScreen> {
                         padding: const EdgeInsets.all(12),
                         margin: const EdgeInsets.only(bottom: 16),
                         decoration: BoxDecoration(
-                          color: Colors.red.withOpacity(0.1),
+                          color: Colors.red.withAlpha((0.1 * 255).toInt()),
                           borderRadius: BorderRadius.circular(8),
-                          border: Border.all(color: Colors.red.withOpacity(0.3)),
+                          border: Border.all(color: Colors.red.withAlpha((0.3 * 255).toInt()),
                         ),
                         child: Text(
                           _errorMessage,
@@ -220,7 +221,7 @@ class _EditPatientScreenState extends State<EditPatientScreen> {
                         ),
                       ),
                     ),
-                  ],
+                )],
                 ),
               ),
             ),

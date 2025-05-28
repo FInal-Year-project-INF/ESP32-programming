@@ -1,9 +1,7 @@
 import 'dart:async';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/bluetooth_provider.dart';
-import '../constants/app_constants.dart';
 
 class BluetoothDeviceSelectionScreen extends StatefulWidget {
   const BluetoothDeviceSelectionScreen({super.key});
@@ -84,7 +82,7 @@ class _BluetoothDeviceSelectionScreenState
                   width: 100,
                   height: 100,
                   decoration: BoxDecoration(
-                    color: Colors.teal.withOpacity(0.1),
+                    color: Colors.teal.withAlpha((0.1 * 255).toInt()),
                     borderRadius: BorderRadius.circular(50),
                   ),
                   child: Icon(
